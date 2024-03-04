@@ -1,0 +1,83 @@
+.bottle {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 60px; /* ボトルの幅を調整 */
+  height: 160px;
+  background-color: #fff;
+  border: 2px solid #ccc; /* ボトルの枠線色を調整 */
+  border-radius: 5px 5px 30px 30px; /* 上部を丸く、下部を少し平らに */
+  margin: 10px;
+  cursor: pointer;
+  box-sizing: border-box;
+  align-items: stretch;
+  transition: transform 0.2s; /* ホバー時のアニメーション用 */
+}
+
+.bottle:hover {
+  transform: scale(1.05); /* ホバー時に少し大きくする */
+}
+
+.bottle.selected {
+  border-color: #f00; /* 選択状態での枠線色を変更 */
+  box-shadow: 0 0 10px #f00; /* 選択状態での影を追加 */
+}
+
+.water {
+  flex: 1;
+  margin: 2px; /* ボトルの内側にマージンを設定 */
+  box-sizing: border-box;
+}
+
+.water.bottom {
+  border-radius: 0 0 25px 25px;
+}
+
+.emptySpace {
+  flex: 1;
+  margin: 2px; /* ボトルの内側にマージンを設定 */
+  background-color: transparent;
+  border-radius: 25px 25px 0 0; /* 上部を丸くする */
+  box-sizing: border-box;
+}
+
+.gameBoard {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.gameContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f00;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+@keyframes celebrationAnimation {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 8px #fff;
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow:
+      0 0 12px #ff0,
+      0 0 24px #ff0;
+  }
+}
+
+.celebrate {
+  animation: celebrationAnimation 0.5s;
+}
