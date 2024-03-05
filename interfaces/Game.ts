@@ -13,6 +13,7 @@ export interface Bottle {
 
 export interface Water {
   colorHexCode: string
+  label: string
 
   isSameColor(other: Water): boolean
 }

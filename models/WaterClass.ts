@@ -2,9 +2,11 @@ import { Water } from '@/interfaces/Game'
 
 export class WaterClass implements Water {
   colorHexCode: string
+  label: string
 
   constructor(colorHexCode: string) {
     this.colorHexCode = colorHexCode
+    this.label = (WaterClass.allColors().indexOf(colorHexCode) + 1).toString()
   }
 
   isSameColor(other: Water): boolean {
@@ -14,25 +16,25 @@ export class WaterClass implements Water {
   static allColors(): string[] {
     return [
       '#E6194B', // red
-      '#3CB44B', // green
+      '#21832e', // green
       '#FFE119', // yellow
       '#0082C8', // blue
-      '#F58231', // orange
+      '#f5a031', // orange
       '#911EB4', // purple
-      '#46F0F0', // cyan
+      '#24caca', // cyan
       '#F032E6', // magenta
-      '#D2F53C', // lime
-      '#FABEBE', // pink
-      '#008080', // teal
-      '#AA6E28', // brown
-      '#FFFAC8', // beige
+      '#64c027', // lime
+      '#e49b9b', // pink
+      '#006d80', // teal
+      '#b86200', // brown
+      '#c8b806', // beige
       '#800000', // maroon
-      '#AAFFC3', // mint
+      '#3eef73', // mint
       '#808000', // olive
-      '#FFD8B1', // coral
+      '#c36609', // coral
       '#000080', // navy
       '#808080', // grey
-      '#469990', // darker teal for replacement
+      '#103f39', // darker teal for replacement
     ]
   }
 

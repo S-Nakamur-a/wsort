@@ -98,7 +98,7 @@ const BottleContentComponent: React.FC<BottleContentComponentProps> = (
           className={`${styles.water} ${index === 0 ? styles.bottom : ''}`}
           style={{ backgroundColor: water.colorHexCode }}
         >
-          {water.colorHexCode}
+          {water.label}
         </div>
       ))}
       {/* 空白部分を描画 */}
