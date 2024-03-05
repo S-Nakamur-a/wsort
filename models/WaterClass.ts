@@ -16,21 +16,21 @@ export class WaterClass implements Water {
   static allColors(): string[] {
     return [
       '#E6194B', // red
-      '#21832e', // green
-      '#FFE119', // yellow
+      '#00a516', // green
+      '#87cf00', // yellow
       '#0082C8', // blue
       '#f5a031', // orange
       '#911EB4', // purple
       '#24caca', // cyan
       '#F032E6', // magenta
-      '#64c027', // lime
+      '#c02779', // lime
       '#e49b9b', // pink
       '#006d80', // teal
-      '#b86200', // brown
-      '#c8b806', // beige
-      '#800000', // maroon
-      '#3eef73', // mint
-      '#808000', // olive
+      '#402506', // brown
+      '#a89e3c', // beige
+      '#930000', // maroon
+      '#004e17', // mint
+      '#7a8000', // olive
       '#c36609', // coral
       '#000080', // navy
       '#808080', // grey
