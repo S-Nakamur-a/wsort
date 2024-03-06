@@ -21,6 +21,9 @@ export interface Water {
 export interface GameState {
   bottles: Bottle[]
   nColors: number
+
+  export(): string
+  import(gameStateString: string): GameState
 }
 
 const movable = (fromBottle: Bottle, toBottle: Bottle): boolean => {

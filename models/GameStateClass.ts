@@ -37,4 +37,19 @@ export class GameStateClass implements GameState {
 
     return new GameStateClass(bottles, nColors)
   }
+
+  export(): string {
+    return JSON.stringify({
+      bottles: this.bottles.map((bottle) => bottle.waters.map((water) => water.label)),
+      nColors: this.nColors,
+    })
+  }
+
+  import(gameStateString: string): GameStateClass {
+    const gameState = JSON.parse(gameStateString)
+    const bottles: Bottle[] = gameState.bottles.map((bottle: string[]) => {
+      return new BottleClass(bottle.map((label) => WaterClass.fromLabel(label)))
+    })
+    return new GameStateClass(bottles, gameState.nColors)
+  }
 }

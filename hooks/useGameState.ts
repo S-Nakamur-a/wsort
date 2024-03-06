@@ -25,6 +25,8 @@ function useGameState(initialParam: number) {
       bottles: newGameState.bottles.map((bottle) => {
         return new BottleClass([...bottle.waters])
       }),
+      export: newGameState.export,
+      import: newGameState.import,
     }
     const updatedHistory = gameHistory
       .slice(0, currentHistoryIndex + 1)
@@ -58,6 +60,13 @@ function useGameState(initialParam: number) {
         startNewGame(initialParam)
     }, [initialParam])
 
+    // 指定された状態にゲームをセットする関数（履歴はリセットする）
+    const setGameStateAndResetHistory = (newGameState: GameStateClass) => {
+      setGameHistory([newGameState])
+      setGameState(newGameState)
+      setCurrentHistoryIndex(0)
+    }
+
 
   return {
     gameState,
@@ -65,6 +74,7 @@ function useGameState(initialParam: number) {
     undoGameState,
     resetGameState,
     startNewGame,
+    setGameStateAndResetHistory,
   }
 }
 

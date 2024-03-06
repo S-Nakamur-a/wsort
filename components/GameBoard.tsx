@@ -1,8 +1,8 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import useGameState from '../hooks/useGameState'
-import { Water, pour } from '../interfaces/Game'
+import { GameState, Water, pour } from '../interfaces/Game'
 import styles from '@/styles/GameBoard.module.css'
 
 export const GameBoard = () => {
@@ -13,6 +13,7 @@ export const GameBoard = () => {
     undoGameState,
     resetGameState,
     startNewGame,
+    setGameStateAndResetHistory,
   } = useGameState(colorNumber)
   const [selectedBottle, setSelectedBottle] = useState<number | null>(null)
 
@@ -34,6 +35,8 @@ export const GameBoard = () => {
                 ? newToBottle
                 : bottle
             ),
+            export: gameState.export,
+            import: gameState.import,
         }
         updateGameState(newGameState)
 
@@ -45,6 +48,10 @@ export const GameBoard = () => {
   const handleColorNumberChange = (newColorNumber: number) => {
     setColorNumber(newColorNumber)
     startNewGame(newColorNumber)
+  }
+  const onImport = (gameStateString: string) => {
+    setGameStateAndResetHistory(gameState.import(gameStateString))
+    setColorNumber(gameState.nColors)
   }
   return (
     <div className={styles.gameContainer}>
@@ -76,6 +83,8 @@ export const GameBoard = () => {
         colorNumber={colorNumber}
         onColorNumberChange={handleColorNumberChange}
       />
+      <ExportGameStateComponent gameState={gameState} />
+      <ImportGameStateComponent onImport={onImport} />
     </div>
   )
 }
@@ -129,4 +138,29 @@ const ColorNumberSliderComponent: React.FC<ColorNumberSliderComponentProps> = (
       <span>{props.colorNumber}</span>
     </div>
   )
+}
+
+const ExportGameStateComponent: React.FC<{ gameState: GameState }> = (
+  props
+) => {
+  const exportGameState = () => {
+    return props.gameState.export()
+  }
+  return (
+    <button className={styles.olive_button} onClick={() => window.prompt('この文字列をコピーしてください', exportGameState())}>
+      このゲームを保存する (URLを生成)
+    </button>
+  )
+  }
+
+const ImportGameStateComponent: React.FC<{ onImport: (gameStateString: string) => void }> = (
+  props
+) => {
+  const importGameState = () => {
+    const gameStateString = window.prompt('保存した文字列を貼り付けてください')
+    if (gameStateString) {
+      props.onImport(gameStateString)
+    }
+  }
+  return <button className={styles.olive_button} onClick={importGameState}>文字列からゲームを開始する</button>
 }

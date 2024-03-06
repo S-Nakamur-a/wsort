@@ -71,6 +71,17 @@
   transition: background-color 0.2s;
 }
 
+.olive_button {
+  background-color: rgb(94, 184, 48);
+  font-size: 16px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin: 15px;
+}
 @keyframes celebrationAnimation {
   0%,
   100% {
@@ -88,3 +99,4 @@
 .celebrate {
   animation: celebrationAnimation 0.5s;
 }
+

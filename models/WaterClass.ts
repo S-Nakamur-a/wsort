@@ -45,6 +45,11 @@ export class WaterClass implements Water {
     return new WaterClass(WaterClass.allColors()[index])
   }
 
+  static fromLabel(label: string): WaterClass {
+    const index = parseInt(label, 10) - 1
+    return WaterClass.fromColorNumber(index)
+  }
+
   static maxColors(): number {
     return WaterClass.allColors().length
   }
