@@ -27,13 +27,13 @@ export class WaterClass implements Water {
       '#e49b9b', // pink
       '#006d80', // teal
       '#402506', // brown
-      '#a89e3c', // beige
-      '#930000', // maroon
-      '#004e17', // mint
+      '#cdc14e', // beige
+      '#aa0404', // maroon
+      '#86ad91', // mint
       '#7a8000', // olive
       '#c36609', // coral
       '#000080', // navy
-      '#808080', // grey
+      '#dcdcdc', // grey
       '#103f39', // darker teal for replacement
     ]
   }
